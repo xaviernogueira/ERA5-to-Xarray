@@ -11,24 +11,25 @@
 
 ## Getting Started
 1. Start by cloning this repository locally.
-2. Next, within an conda terminal navigate to the local repository location and clone and activate our conda virtual environment using `environment.yml`.
+2. Next, within an conda terminal navigate to the local repository location and clone and activate our conda virtual environment using `environment_demo.yml`.
+   * `environment_dev.yml` currently does not recognize the 'jupyter lab' command
 ```
 # mock conda terminal
 (base) C://User: cd Path/To/Xarray-DataAccessor
-(base) C://User/Path/To/Xarray-DataAccessor conda env create -f environment.yml
+(base) C://User/Path/To/Xarray-DataAccessor conda env create -f environment_demo.yml
 ...
-(base) C://User/Path/To/Xarray-DataAccessor conda activate xarray_data_accessor_env
-(xarray_data_accessor_env) C://User/Path/To/Xarray-DataAccessor
+(base) C://User/Path/To/Xarray-DataAccessor conda activate data_accessor_full
+   (data_accessor_full) C://User/Path/To/Xarray-DataAccessor
 ```
 3. (optional) if you plan to use the `CDSDataAccessor`, follow the instructions [here](https://cds.climate.copernicus.eu/api-how-to) to allow your computer to interact with the CDS API. Basically you must manually make a `.cdsapirc` text file (no extension!) where `cdsapi.Client()` expects it to be.
-4. Use the [conda-develop](https://docs.conda.io/projects/conda-build/en/latest/resources/commands/conda-develop.html) `build` command pointed to the `/src/` directory to make the repo importable.
+4. Use the [conda-develop](https://docs.conda.io/projects/conda-build/en/latest/resources/commands/conda-develop.html) `develop` command pointed to the `/src/` directory to make the repo importable.
 ```
 # mock conda terminal with the env activated
-(xarray_data_accessor_env) C://User/Path/To/Xarray-DataAccessor conda-build src
+(data_accessor_full) C://User/Path/To/Xarray-DataAccessor conda develop src
 
 # a this point you are ready to open an IDE/Notebook of your choice to run your code!
 # For example:
-(xarray_data_accessor_env) C://User/Path/To/Xarray-DataAccessor jupyterlab
+(data_accessor_full) C://User/Path/To/Xarray-DataAccessor jupyter lab
 ```
 5. Finally, import the library into your workflow:
 ```python
